@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<div class="container">
+    Author: {{ post.author }}
+    <br>
+        Create: {{ post.create_date }}
+    <br>
+        Published: {{ post.publish_date }}
+    <br>
+        Last update: {{ post.update_date }}
+    <br>
+        <br>
+            <div class="container">
+                <h3>{{ post.title }}</h3>
+            </div>
+            <div class="container">
+                <h4>{{ post.item }}</h4>
+            </div>
+        <br>
+    {% if post.image %}
+    <img class="card-img-top" src="{{ post.image.url }}" alt="Lights" width="800">
+    {% endif %}
+</div>
+{% endblock %}
