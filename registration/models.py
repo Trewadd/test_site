@@ -29,4 +29,6 @@ def post_save_user_signal_handler(sender, instance, created, **kwargs):
             for permission in permissions_list:
                 permission = Permission.objects.get(name=f'Can {permission} post')
                 group.permissions.add(permission)
+            permission = Permission.objects.get(name=f'Can view user profile')
+            group.permissions.add(permission)
 

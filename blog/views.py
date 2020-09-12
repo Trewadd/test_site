@@ -15,7 +15,7 @@ class IndexView(generic.ListView):
 
     def post(self, request):
         send_mail(request)
-        return redirect(reverse('blog:home'))
+        return redirect(reverse('home'))
 
     def get_queryset(self):
         return Post.objects.filter(publish_date__lte=datetime.now()).order_by('-create_date')
@@ -33,4 +33,6 @@ class DetailView(generic.DetailView):
     def post(self, request, *args, **kwargs):
         pk = re.search("[0-9]+", str(request.get_full_path)).group()
         send_mail(request)
-        return redirect(reverse('blog:post', args=(pk,)))
+        return redirect(reverse('post', args=(pk,)))
+
+

@@ -16,7 +16,7 @@ from .emails import send_mail
 @login_required
 def user_logout(request):
     logout(request)
-    return HttpResponseRedirect(reverse('blog:home'))
+    return HttpResponseRedirect(reverse('home'))
 
 
 def registration(request):
@@ -46,7 +46,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect(reverse('blog:home'))
+                return HttpResponseRedirect(reverse('home'))
             else:
                 return HttpResponse('Your account was inactive.')
         else:
@@ -68,6 +68,6 @@ class AccountView(View):
             login(request, user)
             prof_obj = UserProfile.objects.filter(user=uidb).values_list('user', 'logged')
             UserProfile.objects.filter(user_id=prof_obj[0][0]).update(logged=prof_obj[0][1] + 1)
-            return redirect(reverse('blog:home'))
+            return redirect(reverse('home'))
         else:
             return render(request, 'registration/invalid.html')

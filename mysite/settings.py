@@ -1,4 +1,5 @@
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -15,7 +16,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['']
 
 
 # Application definition
@@ -119,7 +120,7 @@ MEDIA_ROOT = BASE_DIR
 
 # LOGIN_URL = 'login/'
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/index'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -130,4 +131,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_HOST_PASSWORD = ''
 
 FALSE_TIME = 1599726121.899738
+django_heroku.settings(locals())
 
