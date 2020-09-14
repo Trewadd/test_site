@@ -8,6 +8,4 @@ class UserAdmin(admin.ModelAdmin):
     list_display = ('user',  'logged')
 
 
-
-
 admin.site.register(UserProfile, UserAdmin)
