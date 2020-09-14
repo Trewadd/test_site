@@ -52,7 +52,7 @@ def user_login(request):
         else:
             print('Someone tried to login and failed.')
             print(f'They used username: {username} and password: {password}')
-            return HttpResponse("Invalid login")
+            return render(request, 'registration/invalid.html')
     else:
         return render(request, 'registration/login.html', {})
 
