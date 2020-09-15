@@ -35,7 +35,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware'
+    # 'whitenoise.middleware.WhiteNoiseMiddleware'
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -70,7 +70,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 # DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 # DATABASES = {
-#     'default': {
+#     'home': {
 #         'ENGINE': os.environ['DB_ENGINE'],
 #         'NAME': os.environ['DB_NAME'],
 #         'USER': os.environ['DB_USER'],
@@ -120,7 +120,7 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
