@@ -4,7 +4,7 @@ from django.contrib.auth.models import User, Group, Permission
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, default=None, primary_key=True,  on_delete=models.CASCADE)
+    user = models.OneToOneField(User, primary_key=True,  on_delete=models.CASCADE)
     logged = models.IntegerField(default=0)
 
     class Meta:
