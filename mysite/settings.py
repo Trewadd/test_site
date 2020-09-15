@@ -67,11 +67,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 # DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-
-DATABASES = {
-#
-    'default': {
-      dj_database_url.config(conn_max_age=600, ssl_require=True),
+DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
+# DATABASES = {
+# #
+#     'default': {
+#       dj_database_url.config(conn_max_age=600, ssl_require=True),
 #         'ENGINE': os.environ['DB_ENGINE'],
 #         'NAME': os.environ['DB_NAME'],
 #         'USER': os.environ['DB_USER'],
@@ -80,8 +80,8 @@ DATABASES = {
 #         'PORT': os.environ['DB_PORT'],
 #         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': 'db.sqlite3',
-    }
-}
+#     }
+# }
 
 
 # Password validation
