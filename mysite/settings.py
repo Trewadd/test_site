@@ -153,5 +153,5 @@ SITE_ID=1
 FALSE_TIME = 1599726121.899738
 django_heroku.settings(locals())
 
-options = DATABASES['default'].get('OPTIONS', {})
-options.pop('sslmode', None)
+# options = DATABASES['default'].get('OPTIONS', {})
+# options.pop('sslmode', None)
