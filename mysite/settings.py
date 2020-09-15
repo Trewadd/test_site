@@ -16,7 +16,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', False)
 
-ALLOWED_HOSTS = ['']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -68,7 +68,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-'ENGINE': os.environ['DB_ENGINE'],
+        'ENGINE': os.environ['DB_ENGINE'],
         'NAME': os.environ['DB_NAME'],
         'USER': os.environ['DB_USER'],
         'PASSWORD': os.environ['DB_PASSWORD'],
