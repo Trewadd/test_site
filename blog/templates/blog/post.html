@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load static %}
 {% block content %}
 <div class="container">
     Author: {{ post.author }}
@@ -18,7 +19,7 @@
             </div>
         <br>
     {% if post.image %}
-    <img class="card-img-top" src="{{ post.image.url }}" alt="Lights" width="800">
+    <img class="card-img-top" src="{% static "{{ post.image.url }}" %}" alt="Lights" width="800">
     {% endif %}
 </div>
 {% endblock %}
