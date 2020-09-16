@@ -6,8 +6,8 @@ import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
-STATIC_DIR = os.path.join(BASE_DIR,'static')
-MEDIA_DIR = os.path.join(BASE_DIR,'media')
+# STATIC_DIR = os.path.join(BASE_DIR,'static')
+# MEDIA_DIR = os.path.join(BASE_DIR,'media')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -23,7 +23,7 @@ ALLOWED_HOSTS = ['still-shore-19957.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic',
+    # 'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,12 +130,17 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+STATIC_DIR = os.path.join(BASE_DIR,'static')
+
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, "static-files", "static-root")
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 # MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, "static-files", "media-root")
+MEDIA_DIR = os.path.join(BASE_DIR,'media')
+
+
 
 # LOGIN_URL = 'login/'
 LOGIN_REDIRECT_URL = '/'
