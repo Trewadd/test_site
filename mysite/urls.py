@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
 # from blog.core import views as core_views
-# from blog import views as b_views
+from blog import views as b_views
 # from  import views as r_views
 
 urlpatterns = [
@@ -15,7 +15,7 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('registration/', include('registration.urls')),
 
-    # path('', b_views.IndexView.as_view(), name='home'),
+    path('', b_views.IndexView.as_view(), name='home'),
     # path('post/<int:pk>', b_views.DetailView.as_view(), name='post'),
 ]
 
