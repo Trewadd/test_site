@@ -15,8 +15,8 @@ MEDIA_DIR = os.path.join(BASE_DIR,'media')
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', False)
-# DEBUG = False
+# DEBUG = os.environ.get('DEBUG', False)
+DEBUG = False
 ALLOWED_HOSTS = ['still-shore-19957.herokuapp.com']
 
 
@@ -131,7 +131,10 @@ USE_TZ = False
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 
 MEDIA_ROOT = MEDIA_DIR
