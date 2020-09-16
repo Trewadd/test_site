@@ -15,8 +15,8 @@ MEDIA_DIR = os.path.join(BASE_DIR,'media')
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = os.environ.get('DEBUG', False)
-DEBUG = False
+DEBUG = os.environ.get('DEBUG', False)
+# DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 
@@ -149,7 +149,7 @@ EMAIL_PORT = os.environ['EMAIL_PORT']
 EMAIL_HOST_USER = os.environ['EMAIL_USER']
 EMAIL_HOST_PASSWORD = os.environ['EMAIL_PASSWORD']
 
-SITE_ID=1
+# SITE_ID=1
 FALSE_TIME = 1599726121.899738
 django_heroku.settings(locals())
 
