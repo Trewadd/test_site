@@ -27,12 +27,18 @@ class DetailView(generic.DetailView):
     context_object_name = 'post'
     current_post = int()
 
-    def get_queryset(self):
+    def get_queryset(self, request):
+        image = request.FILES['image_file'].file.read()
+        Post.objects.create(image=image)
         return Post.objects.filter(pk=self.kwargs['pk'])
 
     def post(self, request, *args, **kwargs):
         pk = re.search("[0-9]+", str(request.get_full_path)).group()
         send_mail(request)
         return redirect(reverse('post', args=(pk,)))
+
+    # def image(request):
+    #     image_file = request.FILES['image_file'].file.read()
+    #     Post.objects.create(image=image_file)
 
 

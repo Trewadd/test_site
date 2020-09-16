@@ -12,3 +12,4 @@ class PostForm(forms.ModelForm):
     def clean_author(self):
         self.cleaned_data['author']
         return User()
+
