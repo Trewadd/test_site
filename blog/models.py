@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-# from .forms import BinaryFileInput
 
 
 class Post(models.Model):
@@ -10,7 +9,9 @@ class Post(models.Model):
     create_date = models.DateTimeField('create date', auto_now_add=True)
     publish_date = models.DateTimeField('publish date', blank=False)
     update_date = models.DateTimeField('last update date', blank=True, auto_now=True)
-    image = models.FileField(upload_to='images/', null=True, blank=True)
+    image = models.ImageField(blank=True)
+    # image = models.OneToOneField(Console, blank=True, on_delete=models.CASCADE)
+    # image = models.BinaryField(blank=True)
 
     def __str__(self):
         return self.item

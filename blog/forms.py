@@ -7,6 +7,7 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
+
         fields = ['title', 'item', 'publish_date', 'image', 'author']
 
     def clean_author(self):

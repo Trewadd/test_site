@@ -23,7 +23,6 @@ ALLOWED_HOSTS = ['still-shore-19957.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    # 'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -32,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'registration',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -132,12 +132,12 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # STATIC_DIR = os.path.join(BASE_DIR,'static')
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATIC_ROOT = os.path.join(BASE_DIR, "static-files", "static-root")
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "static-files", "media-root")
+# MEDIA_ROOT = os.path.join(BASE_DIR, "static-files", "media-root")
 # MEDIA_DIR = os.path.join(BASE_DIR,'media')
 
 
@@ -154,9 +154,34 @@ EMAIL_PORT = os.environ['EMAIL_PORT']
 EMAIL_HOST_USER = os.environ['EMAIL_USER']
 EMAIL_HOST_PASSWORD = os.environ['EMAIL_PASSWORD']
 
+# DEFAULT_FILE_STORAGE = 'db_file_storage.storage.DatabaseFileStorage'
 # SITE_ID=1
+
+
+
+AWS_ACCESS_KEY_ID = os.environ['AWS_KEY']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_ACCESS']
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_BUCKET']
+AWS_S3_REGION_NAME = 'us-east-2'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static'
+# AWS_S3_REGION_NAME = 'ap-south-1' #change to your region
+AWS_S3_SIGNATURE_VERSION = 's3v4'
+DEFAULT_FILE_STORAGE = 'mysite.storage_backends.MediaStorage'
+
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+
 FALSE_TIME = 1599726121.899738
 django_heroku.settings(locals())
+
+
 
 # options = DATABASES['default'].get('OPTIONS', {})
 # options.pop('sslmode', None)

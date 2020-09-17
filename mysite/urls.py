@@ -14,6 +14,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('blog/', include('blog.urls')),
     path('registration/', include('registration.urls')),
+    # path('files/', include('db_file_storage.urls')),
 
     path('', b_views.IndexView.as_view(), name='home'),
     # path('post/<int:pk>', b_views.DetailView.as_view(), name='post'),
