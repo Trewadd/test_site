@@ -18,10 +18,9 @@
             </div>
         <br>
     {% if post.image %}
-    <img class="card-img-top" src= "{{ post.image.url }}" alt="Lights" width="800">
-    <img src="{{ post.image.url }}" height="200" width="400">
-    {{ post.image }}
-    {{ post.image.url }}
+    <img class="card-img-top" crossorigin=anonymous src="{{ post.image.url }}" alt="Lights" width="800">
+    <img src="{{ post.image.url }}" crossorigin=anonymous height="200" width="400">
+
     {% endif %}
 </div>
 {% endblock %}
